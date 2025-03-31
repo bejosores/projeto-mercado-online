@@ -4,53 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minimercado Online</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Referência ao CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <header class="bg-primary text-white text-center p-3">
         <h1>Bem-vindo ao Minimercado Online</h1>
         <nav>
-            <ul>
-                <li><a href="#produtos">Produtos</a></li>
-                <li><a href="#servicos">Serviços</a></li>
+            <ul class="nav justify-content-center">
+                <li class="nav-item"><a class="nav-link text-white" href="#produtos">Produtos</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#servicos">Serviços</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#cadastro">Cadastro</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main class="container mt-4">
+        <!-- Carrossel de Produtos -->
         <section id="produtos">
             <h2>Produtos</h2>
-            <div class="produto">
-                <h3>Arroz</h3>
-                <img src="https://via.placeholder.com/150/0000FF/808080?Text=Arroz" alt="Arroz">
-                <p>Descrição do arroz.</p>
-                <p>Preço: R$ 10,00</p>
-            </div>
-            <div class="produto">
-                <h3>Feijão</h3>
-                <img src="https://via.placeholder.com/150/FF6347/FFFFFF?Text=Feijao" alt="Feijão">
-                <p>Descrição do feijão.</p>
-                <p>Preço: R$ 15,00</p>
+            <div id="carouselProdutos" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="d-block w-100" alt="Imagem de Arroz" style="height: 400px; object-fit: cover;">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Arroz</h5>
+                            <p>R$ 10,00</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1564894809611-1742fc40ed80?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="d-block w-100" alt="Imagem de Feijão" style="height: 400px; object-fit: cover;">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Feijão</h5>
+                            <p>R$ 15,00</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1612966769270-fe4562e0bfb3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="d-block w-100" alt="Imagem de Macarrão" style="height: 400px; object-fit: cover;">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Macarrão</h5>
+                            <p>R$ 8,00</p>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselProdutos" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </a>
+                <a class="carousel-control-next" href="#carouselProdutos" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </a>
             </div>
         </section>
 
-        <section id="servicos">
-            <h2>Serviços</h2>
-            <div class="servico">
-                <h3>Serviço 1</h3>
-                <p>Descrição do serviço 1.</p>
-                <p>Preço: R$ 20,00</p>
-            </div>
-            <div class="servico">
-                <h3>Serviço 2</h3>
-                <p>Descrição do serviço 2.</p>
-                <p>Preço: R$ 25,00</p>
-            </div>
+        <!-- Formulário de Cadastro -->
+        <section id="cadastro" class="mt-5">
+            <h2>Cadastro de Cliente</h2>
+            <form id="formCadastro">
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome Completo</label>
+                    <input type="text" class="form-control" id="nome" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cpf" class="form-label">CPF</label>
+                    <input type="text" class="form-control" id="cpf" required>
+                </div>
+                <div class="mb-3">
+                    <label for="endereco" class="form-label">Endereço</label>
+                    <input type="text" class="form-control" id="endereco">
+                </div>
+                <div class="mb-3">
+                    <label>Sexo:</label>
+                    <div>
+                        <input type="radio" name="sexo" value="masculino"> Masculino
+                        <input type="radio" name="sexo" value="feminino"> Feminino
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="telefone" class="form-label">Telefone</label>
+                    <input type="tel" class="form-control" id="telefone">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </form>
+        </section>
+
+        <!-- Escolha do Serviço -->
+        <section id="agendamento" class="mt-5">
+            <h2>Agendamento</h2>
+            <label>Escolha o serviço:</label>
+            <select id="tipoAgendamento" class="form-select">
+                <option value="retirada">Retirada no local</option>
+                <option value="tele-entrega">Tele-entrega</option>
+            </select>
+            <label class="mt-3">Escolha a data e hora:</label>
+            <input type="datetime-local" id="dataHora" class="form-control">
         </section>
     </main>
 
-    <footer>
+    <footer class="text-center p-3 mt-4 bg-light">
         <p>&copy; 2025 Minimercado Online | Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        document.getElementById('formCadastro').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Cadastro realizado com sucesso!');
+        });
+    </script>
 </body>
 </html>
